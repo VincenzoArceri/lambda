@@ -1,0 +1,8 @@
+(fix fac.(
+	lambda x . (
+		if (x >= 2) then 
+			x * (fac( x + (-1))) 
+		else 
+			1 )
+		)
+) 5

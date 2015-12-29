@@ -13,6 +13,7 @@ context-free priorities
     Exp "+" Exp -> Exp {left, cons("Exp1475Syn")}
 } > {
     Exp "<=" Exp -> Exp {cons("Exp1476Syn")}
+    Exp ">=" Exp -> Exp {cons("Exp1477Syn")}
 }
 
 context-free start-symbols
@@ -23,14 +24,14 @@ context-free syntax
     Id -> KVariable {}
     DzInt -> Int {}
     Bool -> Val {}
-    "let" InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1478Syn")}
+    "let" InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1479Syn")}
     DzString -> String {}
-    "if" InsertDzExp "then" InsertDzExp "else" Exp -> Exp {cons("Exp1477Syn")}
-    "letrec" InsertDzId InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1479Syn")}
+    "if" InsertDzExp "then" InsertDzExp "else" Exp -> Exp {cons("Exp1478Syn")}
+    "letrec" InsertDzId InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1480Syn")}
     Int -> Val {}
     Exp Exp -> Exp {left, cons("Exp1472Syn")}
     "lambda" InsertDzId "." Exp -> Val {cons("Val1470Syn")}
-    "fix" InsertDzId "." Exp -> Exp {cons("Exp1480Syn")}
+    "fix" InsertDzId "." Exp -> Exp {cons("Exp1482Syn")}
     DzBool -> Bool {}
     Val -> Exp {}
     Id -> Val {}
@@ -103,6 +104,7 @@ lexical syntax
     "let" -> DzStringDz {reject}
     "if" -> DzStringDz {reject}
     "=" -> DzStringDz {reject}
+    ">=" -> DzStringDz {reject}
     "<=" -> IdDz {reject}
     "letrec" -> IdDz {reject}
     "in" -> IdDz {reject}
@@ -121,6 +123,7 @@ lexical syntax
     "let" -> IdDz {reject}
     "if" -> IdDz {reject}
     "=" -> IdDz {reject}
+    ">=" -> IdDz {reject}
     "<=" -> DzIntDz {reject}
     "letrec" -> DzIntDz {reject}
     "in" -> DzIntDz {reject}
@@ -139,6 +142,7 @@ lexical syntax
     "let" -> DzIntDz {reject}
     "if" -> DzIntDz {reject}
     "=" -> DzIntDz {reject}
+    ">=" -> DzIntDz {reject}
     "<=" -> DzFloatDz {reject}
     "letrec" -> DzFloatDz {reject}
     "in" -> DzFloatDz {reject}
@@ -157,6 +161,7 @@ lexical syntax
     "let" -> DzFloatDz {reject}
     "if" -> DzFloatDz {reject}
     "=" -> DzFloatDz {reject}
+    ">=" -> DzFloatDz {reject}
 context-free syntax
     DzStringDz -> DzString {cons("DzString1Const")}
     IdDz -> Id {cons("Id1Const")}

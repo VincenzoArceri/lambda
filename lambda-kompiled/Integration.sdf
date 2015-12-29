@@ -113,6 +113,7 @@ context-free priorities
     Exp "+" Exp -> Exp {left, cons("Exp1475Syn")}
 } > {
     Exp "<=" Exp -> Exp {cons("Exp1476Syn")}
+    Exp ">=" Exp -> Exp {cons("Exp1477Syn")}
 }
 
 %% subsorts 1
@@ -284,7 +285,7 @@ context-free syntax
     K "[" InsertDzKList "/" InsertDzKList "]" -> K {cons("K1446Syn")}
     "#patternMatch" "(" InsertDzKList "," InsertDzKList ")" -> K {cons("K1379Syn")}
     "#freshSubst1" "(" InsertDzSet "," InsertDzSet "," InsertDzMap "," InsertDzK "," InsertDzK ")" -> K {cons("K1464Syn")}
-    "if" InsertDzExp "then" InsertDzExp "else" Exp -> Exp {cons("Exp1477Syn")}
+    "if" InsertDzExp "then" InsertDzExp "else" Exp -> Exp {cons("Exp1478Syn")}
     "ordChar" "(" InsertDzString ")" -> Int {cons("Int1240Syn")}
     "#ioError" "(" InsertDzString ")" -> K {cons("K120Syn")}
     "size" "(" InsertDzMyBag ")" -> Int {cons("Int145Syn")}
@@ -351,7 +352,7 @@ context-free syntax
     MySet "," MySet -> MySet {left, cons("MySet146Syn")}
     Map "[" InsertDzMap "]" -> Map {cons("Map1UpdateMapWithMapSyn")}
     "#isMapInK" "(" InsertDzK ")" -> Bool {cons("Bool1322Syn")}
-    "letrec" InsertDzId InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1479Syn")}
+    "letrec" InsertDzId InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1480Syn")}
     MyMap "[" InsertDzK "<-" InsertDzK "]" -> MyMap {cons("MyMap159Syn")}
     "#opendir" "(" InsertDzString ")" -> KList {cons("KList124Syn")}
     "#substituteFV" "(" InsertDzK "," InsertDzMap "," InsertDzK ")" -> K {cons("K1450Syn")}
@@ -383,7 +384,7 @@ context-free syntax
     "KList2KLabel" KList -> KLabel {cons("KLabel1336Syn")}
     "#counter" -> Int {cons("Int1298Syn")}
     "findChar" "(" InsertDzString "," InsertDzString "," InsertDzInt ")" -> Int {cons("Int1245Syn")}
-    "let" InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1478Syn")}
+    "let" InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1479Syn")}
     MyMap "[" InsertDzK "<-" "undef" "]" -> MyMap {cons("MyMap162Syn")}
     String -> TCPAnswer {}
     K "inKList" KList -> Bool {cons("Bool1299Syn")}
@@ -501,7 +502,7 @@ context-free syntax
     "String2Float" "(" InsertDzString ")" -> Float {cons("Float1248Syn")}
     "isSymbolicSet" "(" InsertDzSet ")" -> K {cons("K1398Syn")}
     "#substMap" "(" InsertDzMap ")" -> K {cons("K1460Syn")}
-    "fix" InsertDzId "." Exp -> Exp {cons("Exp1480Syn")}
+    "fix" InsertDzId "." Exp -> Exp {cons("Exp1482Syn")}
     "#retrieveTCPError" "(" InsertDzString ")" -> String {cons("String1294Syn")}
     K "in" MyBag -> Bool {cons("Bool144Syn")}
     K "#inSet" Set -> Bool {cons("Bool1327Syn")}
@@ -878,11 +879,13 @@ lexical restrictions
     "#" -/- [E].[N].[O].[E].[N].[T]
     "#freeVars" -/- [B].[i].[n].[d].[e].[r].[\1]
     "==K" -/- [L].[a].[b].[e].[l]
+    ">=" -/- [I].[n].[t]
     "#freeVars" -/- [B].[i].[n].[d].[e].[r].[\2]
     "#freshSym" -/- [S].[o].[r].[t].[N]
     "=" -/- [K]
     "#" -/- [E].[O].[F]
     "#substitutePlain" -/- [L].[i].[s].[t]
+    ">=" -/- [S].[t].[r].[i].[n].[g]
     "+" -/- [F].[l].[o].[a].[t]
     "#eval" -/- [H].[e].[l].[p].[e].[r]
     "#substitute" -/- [L].[i].[s].[t].[\1]
@@ -893,6 +896,7 @@ lexical restrictions
     "." -/- [M].[y].[L].[i].[s].[t]
     "#substituteK" -/- [A].[r].[r].[o].[w]
     "/" -/- [I].[n].[t]
+    ">=" -/- [F].[l].[o].[a].[t]
     "+" -/- [I].[n].[t]
     "#" -/- [E].[I].[N].[V].[A].[L]
 lexical restrictions
@@ -1173,6 +1177,7 @@ lexical syntax
     "#substituteList" -> DzStringDz {reject}
     "=/=Set" -> DzStringDz {reject}
     "Set2KLabel" -> DzStringDz {reject}
+    ">=" -> DzStringDz {reject}
     "heat" -> DzStringDz {reject}
     "#else" -> DzStringDz {reject}
     "MyMapOf" -> DzStringDz {reject}
@@ -1484,6 +1489,7 @@ lexical syntax
     "#substituteList" -> DzIntDz {reject}
     "=/=Set" -> DzIntDz {reject}
     "Set2KLabel" -> DzIntDz {reject}
+    ">=" -> DzIntDz {reject}
     "heat" -> DzIntDz {reject}
     "#else" -> DzIntDz {reject}
     "MyMapOf" -> DzIntDz {reject}
@@ -1795,6 +1801,7 @@ lexical syntax
     "#substituteList" -> DzFloatDz {reject}
     "=/=Set" -> DzFloatDz {reject}
     "Set2KLabel" -> DzFloatDz {reject}
+    ">=" -> DzFloatDz {reject}
     "heat" -> DzFloatDz {reject}
     "#else" -> DzFloatDz {reject}
     "MyMapOf" -> DzFloatDz {reject}
