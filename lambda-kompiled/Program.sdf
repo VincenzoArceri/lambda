@@ -20,7 +20,6 @@ Val DzString DzBool Float Bool Id String Exp KVariable DzInt Int DzFloat K
 context-free syntax
     DzFloat -> Float {}
     "(" InsertDzExp ")" -> Exp {cons("Exp1Bracket")}
-    "mu" InsertDzId "." Exp -> Exp {cons("Exp1480Syn")}
     Id -> KVariable {}
     DzInt -> Int {}
     Bool -> Val {}
@@ -31,6 +30,7 @@ context-free syntax
     Int -> Val {}
     Exp Exp -> Exp {left, cons("Exp1472Syn")}
     "lambda" InsertDzId "." Exp -> Val {cons("Val1470Syn")}
+    "fix" InsertDzId "." Exp -> Exp {cons("Exp1480Syn")}
     DzBool -> Bool {}
     Val -> Exp {}
     Id -> Val {}
@@ -67,10 +67,10 @@ lexical syntax
 
     "letrec" -> IdDz {reject}
     "in" -> IdDz {reject}
-    "mu" -> IdDz {reject}
     "false" -> IdDz {reject}
     "then" -> IdDz {reject}
     "lambda" -> IdDz {reject}
+    "fix" -> IdDz {reject}
     "else" -> IdDz {reject}
     "true" -> IdDz {reject}
     "let" -> IdDz {reject}
@@ -89,7 +89,6 @@ lexical syntax
     "letrec" -> DzStringDz {reject}
     "in" -> DzStringDz {reject}
     "(" -> DzStringDz {reject}
-    "mu" -> DzStringDz {reject}
     "false" -> DzStringDz {reject}
     ")" -> DzStringDz {reject}
     "*" -> DzStringDz {reject}
@@ -98,6 +97,7 @@ lexical syntax
     "." -> DzStringDz {reject}
     "/" -> DzStringDz {reject}
     "lambda" -> DzStringDz {reject}
+    "fix" -> DzStringDz {reject}
     "else" -> DzStringDz {reject}
     "true" -> DzStringDz {reject}
     "let" -> DzStringDz {reject}
@@ -107,7 +107,6 @@ lexical syntax
     "letrec" -> IdDz {reject}
     "in" -> IdDz {reject}
     "(" -> IdDz {reject}
-    "mu" -> IdDz {reject}
     "false" -> IdDz {reject}
     ")" -> IdDz {reject}
     "*" -> IdDz {reject}
@@ -116,6 +115,7 @@ lexical syntax
     "." -> IdDz {reject}
     "/" -> IdDz {reject}
     "lambda" -> IdDz {reject}
+    "fix" -> IdDz {reject}
     "else" -> IdDz {reject}
     "true" -> IdDz {reject}
     "let" -> IdDz {reject}
@@ -125,7 +125,6 @@ lexical syntax
     "letrec" -> DzIntDz {reject}
     "in" -> DzIntDz {reject}
     "(" -> DzIntDz {reject}
-    "mu" -> DzIntDz {reject}
     "false" -> DzIntDz {reject}
     ")" -> DzIntDz {reject}
     "*" -> DzIntDz {reject}
@@ -134,6 +133,7 @@ lexical syntax
     "." -> DzIntDz {reject}
     "/" -> DzIntDz {reject}
     "lambda" -> DzIntDz {reject}
+    "fix" -> DzIntDz {reject}
     "else" -> DzIntDz {reject}
     "true" -> DzIntDz {reject}
     "let" -> DzIntDz {reject}
@@ -143,7 +143,6 @@ lexical syntax
     "letrec" -> DzFloatDz {reject}
     "in" -> DzFloatDz {reject}
     "(" -> DzFloatDz {reject}
-    "mu" -> DzFloatDz {reject}
     "false" -> DzFloatDz {reject}
     ")" -> DzFloatDz {reject}
     "*" -> DzFloatDz {reject}
@@ -152,6 +151,7 @@ lexical syntax
     "." -> DzFloatDz {reject}
     "/" -> DzFloatDz {reject}
     "lambda" -> DzFloatDz {reject}
+    "fix" -> DzFloatDz {reject}
     "else" -> DzFloatDz {reject}
     "true" -> DzFloatDz {reject}
     "let" -> DzFloatDz {reject}

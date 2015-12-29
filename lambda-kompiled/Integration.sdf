@@ -428,7 +428,6 @@ context-free syntax
     "#EBADF" -> TCPError {cons("TCPError1286Syn")}
     "#substituteList1" "(" InsertDzK "," InsertDzMap "," InsertDzK "," InsertDzKList ")" -> K {cons("K1453Syn")}
     "String2DotK" "(" InsertDzTCPAnswer ")" -> K {cons("K126Syn")}
-    "mu" InsertDzId "." Exp -> Exp {cons("Exp1480Syn")}
     "isToken" "(" InsertDzK ")" -> Bool {cons("Bool1345Syn")}
     K "inVars" K -> Bool {cons("Bool1429Syn")}
     "#open" "(" InsertDzString "," InsertDzString ")" -> KItem {cons("KItem12Syn")}
@@ -502,6 +501,7 @@ context-free syntax
     "String2Float" "(" InsertDzString ")" -> Float {cons("Float1248Syn")}
     "isSymbolicSet" "(" InsertDzSet ")" -> K {cons("K1398Syn")}
     "#substMap" "(" InsertDzMap ")" -> K {cons("K1460Syn")}
+    "fix" InsertDzId "." Exp -> Exp {cons("Exp1480Syn")}
     "#retrieveTCPError" "(" InsertDzString ")" -> String {cons("String1294Syn")}
     K "in" MyBag -> Bool {cons("Bool144Syn")}
     K "#inSet" Set -> Bool {cons("Bool1327Syn")}
@@ -915,6 +915,7 @@ lexical syntax
     "trim" -> DzStringDz {reject}
     "categoryChar" -> DzStringDz {reject}
     "isSymbolicSet" -> DzStringDz {reject}
+    "fix" -> DzStringDz {reject}
     "#evalHelper" -> DzStringDz {reject}
     "isBinder" -> DzStringDz {reject}
     "#binderSplit1" -> DzStringDz {reject}
@@ -1162,7 +1163,6 @@ lexical syntax
     "KLabel2KLabel" -> DzStringDz {reject}
     "#freshSym" -> DzStringDz {reject}
     "Int2String" -> DzStringDz {reject}
-    "mu" -> DzStringDz {reject}
     ".MyList" -> DzStringDz {reject}
     "#substituteFV" -> DzStringDz {reject}
     "=K" -> DzStringDz {reject}
@@ -1226,6 +1226,7 @@ lexical syntax
     "trim" -> DzIntDz {reject}
     "categoryChar" -> DzIntDz {reject}
     "isSymbolicSet" -> DzIntDz {reject}
+    "fix" -> DzIntDz {reject}
     "#evalHelper" -> DzIntDz {reject}
     "isBinder" -> DzIntDz {reject}
     "#binderSplit1" -> DzIntDz {reject}
@@ -1473,7 +1474,6 @@ lexical syntax
     "KLabel2KLabel" -> DzIntDz {reject}
     "#freshSym" -> DzIntDz {reject}
     "Int2String" -> DzIntDz {reject}
-    "mu" -> DzIntDz {reject}
     ".MyList" -> DzIntDz {reject}
     "#substituteFV" -> DzIntDz {reject}
     "=K" -> DzIntDz {reject}
@@ -1537,6 +1537,7 @@ lexical syntax
     "trim" -> DzFloatDz {reject}
     "categoryChar" -> DzFloatDz {reject}
     "isSymbolicSet" -> DzFloatDz {reject}
+    "fix" -> DzFloatDz {reject}
     "#evalHelper" -> DzFloatDz {reject}
     "isBinder" -> DzFloatDz {reject}
     "#binderSplit1" -> DzFloatDz {reject}
@@ -1784,7 +1785,6 @@ lexical syntax
     "KLabel2KLabel" -> DzFloatDz {reject}
     "#freshSym" -> DzFloatDz {reject}
     "Int2String" -> DzFloatDz {reject}
-    "mu" -> DzFloatDz {reject}
     ".MyList" -> DzFloatDz {reject}
     "#substituteFV" -> DzFloatDz {reject}
     "=K" -> DzFloatDz {reject}

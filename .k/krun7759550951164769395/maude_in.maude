@@ -1,0 +1,5 @@
+set show command off .
+red setCounter(0) .
+erewrite <_>_</_>(generatedTop, <_>_</_>(k, _`(_`)('__, _`,`,_(_`(_`)('lambda_._, _`,`,_(_`(_`)(#token("Id", "x"), .KList), _`(_`)('__, _`,`,_(_`(_`)(#token("Id", "x"), .KList), _`(_`)(#token("Id", "x"), .KList))))), _`(_`)('lambda_._, _`,`,_(_`(_`)(#token("Id", "x"), .KList), _`(_`)('__, _`,`,_(_`(_`)(#token("Id", "x"), .KList), _`(_`)(#token("Id", "x"), .KList))))))), k), generatedTop) .
+
+red counter .

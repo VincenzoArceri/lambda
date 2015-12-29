@@ -17,10 +17,9 @@ eq <_>_</_>(k, _~>_(_`(_`)('if_then_else_, _`,`,_(_`(_`)(#_(false), .KList), Gen
 
 ceq _`(_`)('let_=_in_, _`,`,_(X:K, E:K, E':KItem)) = _`(_`)('__, _`,`,_(_`(_`)('lambda_._, _`,`,_(X:K, E':KItem)), E:K)) if _`(_`)(isExp, E':KItem) = _`(_`)(# true, .KList) [metadata "macro=() filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(40,3,40,79) computational=()"] .
 
-ceq _`(_`)('letrec__=_in_, _`,`,_(F:KItem, X:KItem, E:K, E':K)) = _`(_`)('let_=_in_, _`,`,_(F:KItem, _`(_`)('mu_._, _`,`,_(F:KItem, _`(_`)('lambda_._, _`,`,_(X:KItem, E:K)))), E':K)) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, F:KItem), _`(_`)(isId, X:KItem))) = _`(_`)(# true, .KList) [metadata "macro=() filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(42,3,42,78) computational=()"] .
+ceq _`(_`)('letrec__=_in_, _`,`,_(F:KItem, X:KItem, E:K, E':K)) = _`(_`)('let_=_in_, _`,`,_(F:KItem, _`(_`)('fix_._, _`,`,_(F:KItem, _`(_`)('lambda_._, _`,`,_(X:KItem, E:K)))), E':K)) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, F:KItem), _`(_`)(isId, X:KItem))) = _`(_`)(# true, .KList) [metadata "macro=() filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(42,3,42,79) computational=()"] .
 
-eq <_>_</_>(k, _~>_(_`(_`)('mu_._, _`,`,_(X:K, E:K)), GeneratedFreshVar0:K), k) = <_>_</_>(k, _~>_(_`(_`)('_`[_/_`], _`,`,_(E:K, _`(_`)(KList2KLabel_(_`(_`)('mu_._, _`,`,_(X:K, E:K))), .KList), _`(_`)(KList2KLabel_(X:K), .KList))), GeneratedFreshVar0:K), k) [metadata "filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(43,3,43,36) computational=()"] .
-
+eq <_>_</_>(k, _~>_(_`(_`)('fix_._, _`,`,_(X:K, E:K)), GeneratedFreshVar0:K), k) = <_>_</_>(k, _~>_(_`(_`)('_`[_/_`], _`,`,_(E:K, _`(_`)(KList2KLabel_(_`(_`)('fix_._, _`,`,_(X:K, E:K))), .KList), _`(_`)(KList2KLabel_(X:K), .KList))), GeneratedFreshVar0:K), k) [metadata "filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(43,3,43,38) computational=()"] .
 
 op 'lambda_._ : -> KLabel [metadata "binder=() filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(7,18,7,71) arity=(2)"] .
 
@@ -39,7 +38,7 @@ op '_<=_ : -> KLabel [metadata "strict=() filename=(/Users/Vinci/Dropbox/K Frame
 op 'if_then_else_ : -> KLabel [metadata "strict=(1) filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(16,18,16,60) arity=(3) strict*=()"] .
 op 'let_=_in_ : -> KLabel [metadata "filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(17,18,17,42) arity=(3)"] .
 op 'letrec__=_in_ : -> KLabel [metadata "filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(18,18,18,48) arity=(4)"] .
-op 'mu_._ : -> KLabel [metadata "binder=() filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(19,18,19,67) arity=(2)"] .
+op 'fix_._ : -> KLabel [metadata "binder=() filename=(/Users/Vinci/Dropbox/K Framework/Linguaggi Magistrale/Funzionale/lambda/lambda.k) location=(19,18,19,68) arity=(2)"] .
 
 
 
@@ -1640,8 +1639,6 @@ eq _`(_`)('_=K_, _`,`,_(_`(_`)('#EBADF, GeneratedFreshVar0:KList), _`(_`)('#EBAD
 
 eq _`(_`)('_=K_, _`,`,_(_`(_`)('false, GeneratedFreshVar0:KList), _`(_`)('false, GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
 
-eq _`(_`)('_=K_, _`,`,_(_`(_`)('mu_._, GeneratedFreshVar0:KList), _`(_`)('mu_._, GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
-
 eq _`(_`)('_=K_, _`,`,_(_`(_`)('fresh`(_`), GeneratedFreshVar0:KList), _`(_`)('fresh`(_`), GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
 
 eq _`(_`)('_=K_, _`,`,_(_`(_`)('#ENAMETOOLONG, GeneratedFreshVar0:KList), _`(_`)('#ENAMETOOLONG, GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
@@ -1663,6 +1660,8 @@ eq _`(_`)('_=K_, _`,`,_(_`(_`)('#substMap, GeneratedFreshVar0:KList), _`(_`)('#s
 eq _`(_`)('_=K_, _`,`,_(_`(_`)('true, GeneratedFreshVar0:KList), _`(_`)('true, GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
 
 eq _`(_`)('_=K_, _`,`,_(_`(_`)('_<=_, GeneratedFreshVar0:KList), _`(_`)('_<=_, GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
+
+eq _`(_`)('_=K_, _`,`,_(_`(_`)('fix_._, GeneratedFreshVar0:KList), _`(_`)('fix_._, GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
 
 eq _`(_`)('_=K_, _`,`,_(_`(_`)('exists_._, GeneratedFreshVar0:KList), _`(_`)('exists_._, GeneratedFreshVar1:KList))) = _`(_`)('_=KList_, _`,`,_(_`(_`)(KList2KLabel_(GeneratedFreshVar0:KList), .KList), _`(_`)(KList2KLabel_(GeneratedFreshVar1:KList), .KList))) [metadata "function=()"] .
 
@@ -1702,11 +1701,11 @@ eq _`(_`)(isBound, _`,`,_(_`(_`)(KLabel2KLabel_('lambda_._), .KList), _`(_`)(#_(
 
 eq _`(_`)(isBounding, _`,`,_(_`(_`)(KLabel2KLabel_('lambda_._), .KList), _`(_`)(#_(2), .KList))) = _`(_`)(#_(true), .KList) [metadata "anywhere=()"] .
 
-ceq _`(_`)(isBinder, _`(_`)('mu_._, _`,`,_(GeneratedFreshVar0:KItem, GeneratedFreshVar1:KItem))) = _`(_`)(#_(true), .KList) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, GeneratedFreshVar0:KItem), _`(_`)(isExp, GeneratedFreshVar1:KItem))) = _`(_`)(# true, .KList) [metadata "anywhere=()"] .
+ceq _`(_`)(isBinder, _`(_`)('fix_._, _`,`,_(GeneratedFreshVar0:KItem, GeneratedFreshVar1:KItem))) = _`(_`)(#_(true), .KList) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, GeneratedFreshVar0:KItem), _`(_`)(isExp, GeneratedFreshVar1:KItem))) = _`(_`)(# true, .KList) [metadata "anywhere=()"] .
 
-eq _`(_`)(isBound, _`,`,_(_`(_`)(KLabel2KLabel_('mu_._), .KList), _`(_`)(#_(1), .KList))) = _`(_`)(#_(true), .KList) [metadata "anywhere=()"] .
+eq _`(_`)(isBound, _`,`,_(_`(_`)(KLabel2KLabel_('fix_._), .KList), _`(_`)(#_(1), .KList))) = _`(_`)(#_(true), .KList) [metadata "anywhere=()"] .
 
-eq _`(_`)(isBounding, _`,`,_(_`(_`)(KLabel2KLabel_('mu_._), .KList), _`(_`)(#_(2), .KList))) = _`(_`)(#_(true), .KList) [metadata "anywhere=()"] .
+eq _`(_`)(isBounding, _`,`,_(_`(_`)(KLabel2KLabel_('fix_._), .KList), _`(_`)(#_(2), .KList))) = _`(_`)(#_(true), .KList) [metadata "anywhere=()"] .
 
 ceq _`(_`)(isBinder, _`(_`)('forall_._, _`,`,_(_`(_`)(Set2KLabel_(GeneratedFreshVar0:Set), .KList), GeneratedFreshVar1:KItem))) = _`(_`)(#_(true), .KList) if _`(_`)(isBool, GeneratedFreshVar1:KItem) = _`(_`)(# true, .KList) [metadata "anywhere=()"] .
 
@@ -2270,9 +2269,9 @@ ceq _`(_`)(isExp, _`(_`)('letrec__=_in_, _`,`,_(GeneratedFreshVar0:KItem, Genera
 
 ceq _`(_`)(K2Sort, _`(_`)('letrec__=_in_, _`,`,_(GeneratedFreshVar0:KItem, GeneratedFreshVar1:KItem, GeneratedFreshVar2:KItem, GeneratedFreshVar3:KItem))) = _`(_`)(#_("Exp"), .KList) if _`(_`)('#andBool, _`,`,_(_`(_`)(isExp, GeneratedFreshVar2:KItem), _`(_`)(isExp, GeneratedFreshVar3:KItem), _`(_`)(isId, GeneratedFreshVar1:KItem), _`(_`)(isId, GeneratedFreshVar0:KItem))) = _`(_`)(# true, .KList) [metadata "function=()"] .
 
-ceq _`(_`)(isExp, _`(_`)('mu_._, _`,`,_(GeneratedFreshVar0:KItem, GeneratedFreshVar1:KItem))) = _`(_`)(#_(true), .KList) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, GeneratedFreshVar0:KItem), _`(_`)(isExp, GeneratedFreshVar1:KItem))) = _`(_`)(# true, .KList) [metadata "predicate=()"] .
+ceq _`(_`)(isExp, _`(_`)('fix_._, _`,`,_(GeneratedFreshVar0:KItem, GeneratedFreshVar1:KItem))) = _`(_`)(#_(true), .KList) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, GeneratedFreshVar0:KItem), _`(_`)(isExp, GeneratedFreshVar1:KItem))) = _`(_`)(# true, .KList) [metadata "predicate=()"] .
 
-ceq _`(_`)(K2Sort, _`(_`)('mu_._, _`,`,_(GeneratedFreshVar0:KItem, GeneratedFreshVar1:KItem))) = _`(_`)(#_("Exp"), .KList) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, GeneratedFreshVar0:KItem), _`(_`)(isExp, GeneratedFreshVar1:KItem))) = _`(_`)(# true, .KList) [metadata "function=()"] .
+ceq _`(_`)(K2Sort, _`(_`)('fix_._, _`,`,_(GeneratedFreshVar0:KItem, GeneratedFreshVar1:KItem))) = _`(_`)(#_("Exp"), .KList) if _`(_`)('#andBool, _`,`,_(_`(_`)(isId, GeneratedFreshVar0:KItem), _`(_`)(isExp, GeneratedFreshVar1:KItem))) = _`(_`)(# true, .KList) [metadata "function=()"] .
 
 ceq _`(_`)(isKVariable, GeneratedFreshVar0:KItem) = _`(_`)(#_(true), .KList) if _`(_`)(isId, GeneratedFreshVar0:KItem) = _`(_`)(# true, .KList) [metadata "predicate=()"] .
 
@@ -3041,9 +3040,9 @@ eq _`(_`)(KLabel2String, _`(_`)(KLabel2KLabel_('letrec__=_in_), .KList)) = _`(_`
 
 eq String2KLabel`(_`)(_`(_`)(#_("'letrec__=_in_"), .KList)) = 'letrec__=_in_ [metadata "function=()"] .
 
-eq _`(_`)(KLabel2String, _`(_`)(KLabel2KLabel_('mu_._), .KList)) = _`(_`)(#_("'mu_._"), .KList) [metadata "function=()"] .
+eq _`(_`)(KLabel2String, _`(_`)(KLabel2KLabel_('fix_._), .KList)) = _`(_`)(#_("'fix_._"), .KList) [metadata "function=()"] .
 
-eq String2KLabel`(_`)(_`(_`)(#_("'mu_._"), .KList)) = 'mu_._ [metadata "function=()"] .
+eq String2KLabel`(_`)(_`(_`)(#_("'fix_._"), .KList)) = 'fix_._ [metadata "function=()"] .
 
 eq _`(_`)(KLabel2String, _`(_`)(KLabel2KLabel_('_`[_/_`]), .KList)) = _`(_`)(#_("'_`[_/_`]"), .KList) [metadata "function=()"] .
 
@@ -4547,7 +4546,7 @@ eq _`(_`)(isKLabelConstant, _`(_`)(KLabel2KLabel_('let_=_in_), .KList)) = _`(_`)
 
 eq _`(_`)(isKLabelConstant, _`(_`)(KLabel2KLabel_('letrec__=_in_), .KList)) = _`(_`)(#_(true), .KList) [metadata "predicate=()"] .
 
-eq _`(_`)(isKLabelConstant, _`(_`)(KLabel2KLabel_('mu_._), .KList)) = _`(_`)(#_(true), .KList) [metadata "predicate=()"] .
+eq _`(_`)(isKLabelConstant, _`(_`)(KLabel2KLabel_('fix_._), .KList)) = _`(_`)(#_(true), .KList) [metadata "predicate=()"] .
 
 eq _`(_`)(isKLabelConstant, _`(_`)(KLabel2KLabel_('_`[_/_`]), .KList)) = _`(_`)(#_(true), .KList) [metadata "predicate=()"] .
 

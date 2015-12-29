@@ -16,7 +16,7 @@ module LAMBDA-SYNTAX
   syntax Exp ::= "if" Exp "then" Exp "else" Exp  [strict(1)]         // Conditional
                | "let" Id "=" Exp "in" Exp                           // Let binder
                | "letrec" Id Id "=" Exp "in" Exp                     // Letrec
-               | "mu" Id "." Exp      [binder, latex(\mu{#1}.{#2})]  // Mu
+               | "fix" Id "." Exp      [binder, latex(\mu{#1}.{#2})]  // Mu
   syntax KVariable ::= Id
 endmodule
 
@@ -39,8 +39,6 @@ module LAMBDA
 
   rule let X = E in E':Exp => (lambda X . E') E                         [macro]
 
-  rule letrec F:Id X:Id = E in E' => let F = mu F . lambda X . E in E' [macro]
-  rule mu X . E => E[(mu X . E) / X]
-
-  //configuration <T> <k> $PGM:K </k> </T>
+  rule letrec F:Id X:Id = E in E' => let F = fix F . lambda X . E in E' [macro]
+  rule fix X . E => E[(fix X . E) / X]
 endmodule
