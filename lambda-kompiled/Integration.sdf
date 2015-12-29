@@ -124,6 +124,7 @@ context-free priorities
     Variable -> K
     MyMap -> K
     String -> K
+    KVariable -> K
     Int -> K
     Bool -> K
     Char -> K
@@ -141,16 +142,17 @@ context-free priorities
     DzFloat -> K
 } .> {
     DzFloat -> Float
-    Int -> Val
     TCPError -> TCPAnswer
     Id -> Variable
     DzInt -> Int
-    DzBool -> Bool
+    Id -> KVariable
     DzString -> String
     Bool -> Val
+    String -> TCPAnswer
+    Int -> Val
+    DzBool -> Bool
     Val -> Exp
     Id -> Val
-    String -> TCPAnswer
 } .> {
     K -> Nat
     K -> Val
@@ -158,6 +160,7 @@ context-free priorities
     K -> Variable
     K -> MyMap
     K -> String
+    K -> KVariable
     K -> Int
     K -> Bool
     K -> Char
@@ -184,6 +187,7 @@ context-free priorities
     Variable -> K
     MyMap -> K
     String -> K
+    KVariable -> K
     Int -> K
     Bool -> K
     Char -> K
@@ -206,6 +210,7 @@ context-free priorities
     K -> Variable
     K -> MyMap
     K -> String
+    K -> KVariable
     K -> Int
     K -> Bool
     K -> Char
@@ -232,6 +237,7 @@ context-free priorities
     K -> Variable
     K -> MyMap
     K -> String
+    K -> KVariable
     K -> Int
     K -> Bool
     K -> Char
@@ -254,6 +260,7 @@ context-free priorities
     Variable -> K
     MyMap -> K
     String -> K
+    KVariable -> K
     Int -> K
     Bool -> K
     Char -> K
@@ -325,6 +332,7 @@ context-free syntax
     "#string2Int" "(" InsertDzK ")" -> K {cons("K132Syn")}
     "update" "(" InsertDzMyMap "," InsertDzMyMap ")" -> MyMap {cons("MyMap160Syn")}
     K "#inKList" KList -> Bool {cons("Bool1300Syn")}
+    Id -> KVariable {}
     Set "=Set" Set -> Bool {cons("Bool1370Syn")}
     KLabel "==KLabel" KLabel -> Bool {cons("Bool1364Syn")}
     "freeVariables" "(" InsertDzSet ")" -> Set {cons("Set1437Syn")}
@@ -585,6 +593,7 @@ context-free syntax
     VARID  ":Variable"        -> VariableDzVar            {cons("Variable12Var")}
     VARID  ":MyMap"        -> MyMapDzVar            {cons("MyMap12Var")}
     VARID  ":String"        -> StringDzVar            {cons("String12Var")}
+    VARID  ":KVariable"        -> KVariableDzVar            {cons("KVariable12Var")}
     VARID  ":Int"        -> IntDzVar            {cons("Int12Var")}
     VARID  ":Bool"        -> BoolDzVar            {cons("Bool12Var")}
     VARID  ":Char"        -> CharDzVar            {cons("Char12Var")}
@@ -607,6 +616,7 @@ context-free syntax
      K CastTypeDz "Variable"    -> VariableDzVar    {cons("Variable1Cast")}
      K CastTypeDz "MyMap"    -> MyMapDzVar    {cons("MyMap1Cast")}
      K CastTypeDz "String"    -> StringDzVar    {cons("String1Cast")}
+     K CastTypeDz "KVariable"    -> KVariableDzVar    {cons("KVariable1Cast")}
      K CastTypeDz "Int"    -> IntDzVar    {cons("Int1Cast")}
      K CastTypeDz "Bool"    -> BoolDzVar    {cons("Bool1Cast")}
      K CastTypeDz "Char"    -> CharDzVar    {cons("Char1Cast")}
@@ -628,6 +638,7 @@ context-free syntax
      VariableDzVar   -> Variable
      MyMapDzVar   -> MyMap
      StringDzVar   -> String
+     KVariableDzVar   -> KVariable
      IntDzVar   -> Int
      BoolDzVar   -> Bool
      CharDzVar   -> Char
@@ -664,6 +675,7 @@ context-free restrictions
     VariableDzVar -/- [a-zA-Z0-9]
     MyMapDzVar -/- [a-zA-Z0-9]
     StringDzVar -/- [a-zA-Z0-9]
+    KVariableDzVar -/- [a-zA-Z0-9]
     IntDzVar -/- [a-zA-Z0-9]
     BoolDzVar -/- [a-zA-Z0-9]
     CharDzVar -/- [a-zA-Z0-9]
@@ -718,6 +730,9 @@ lexical syntax
     "isString"      -> DzKLabel
     "isSymbolicString"      -> DzKLabel
     "#symString"      -> DzKLabel
+    "isKVariable"      -> DzKLabel
+    "isSymbolicKVariable"      -> DzKLabel
+    "#symKVariable"      -> DzKLabel
     "isInt"      -> DzKLabel
     "isSymbolicInt"      -> DzKLabel
     "#symInt"      -> DzKLabel

@@ -16,11 +16,12 @@ context-free priorities
 }
 
 context-free start-symbols
-Val DzString DzBool Float Bool Id String Exp DzInt Int DzFloat K
+Val DzString DzBool Float Bool Id String Exp KVariable DzInt Int DzFloat K
 context-free syntax
     DzFloat -> Float {}
     "(" InsertDzExp ")" -> Exp {cons("Exp1Bracket")}
     "mu" InsertDzId "." Exp -> Exp {cons("Exp1480Syn")}
+    Id -> KVariable {}
     DzInt -> Int {}
     Bool -> Val {}
     "let" InsertDzId "=" InsertDzExp "in" Exp -> Exp {cons("Exp1478Syn")}
@@ -55,6 +56,7 @@ context-free syntax
     Id        -> K
     String        -> K
     Exp        -> K
+    KVariable        -> K
     DzInt        -> K
     Int        -> K
     DzFloat        -> K
